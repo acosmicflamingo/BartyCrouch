@@ -179,7 +179,7 @@ class DemoTests: XCTestCase {
         XCTAssertEqual(
             TestHelper.shared.printOutputs[1].message,
             """
-            Transformed 'BartyCrouch.translate(key: "onboarding.first-page.header-title", translations: [.english: "Page Title", .german: "Seitentitel"])' to 'NSLocalizedString("onboarding.first-page.header-title", comment: "")'.
+            Transformed 'BartyCrouch.translate(key: "onboarding.first-page.header-title", translations: [.english: "Page Title", .german: "Seitentitel"])' to 'CFLocalizedString("onboarding.first-page.header-title", comment: "")'.
             """
         )
 
@@ -187,7 +187,7 @@ class DemoTests: XCTestCase {
         XCTAssertEqual(
             TestHelper.shared.printOutputs[3].message,
             """
-            Transformed 'BartyCrouch.translate(key: "onboarding.first-page.line", translations: [:], comment: "Line Comment")' to 'NSLocalizedString("onboarding.first-page.line", comment: "Line Comment")'.
+            Transformed 'BartyCrouch.translate(key: "onboarding.first-page.line", translations: [:], comment: "Line Comment")' to 'CFLocalizedString("onboarding.first-page.line", comment: "Line Comment")'.
             """
         )
 
@@ -206,7 +206,7 @@ class DemoTests: XCTestCase {
                             ]
                     )' to '
 
-                    NSLocalizedString("ShortKey", comment: "")'.
+                    CFLocalizedString("ShortKey", comment: "")'.
             """
         )
 

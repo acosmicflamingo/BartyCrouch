@@ -220,7 +220,7 @@ Also the following command line options can be provided:
 The update subcommand can be run with one or multiple of the following tasks:
 
 - `interfaces`: Updates `.strings` files of Storyboards & XIBs.
-- `code`: Updates `Localizable.strings` file from `NSLocalizedString` entries in code.
+- `code`: Updates `Localizable.strings` file from `CFLocalizedString` entries in code.
 - `transform`: A mode where BartyCrouch replaces a specific method call to provide translations in multiple languages in a single line. Only supports Swift files.
 - `translate`: Updates missing translations in other languages than the source language.
 - `normalize`: Sorts & cleans up `.strings` files.
@@ -247,7 +247,7 @@ tasks = ["interfaces", "code", "transform", "normalize"]
 - `localizablePaths`: The enclosing path(s) containing the localized `Localizable.strings` files.
 - `defaultToKeys`: Add new keys both as key and value.
 - `additive`: Prevents cleaning up keys not found in code.
-- `customFunction`: Use alternative name to `NSLocalizedString`.
+- `customFunction`: Use alternative name to `CFLocalizedString`.
 - `customLocalizableName`: Use alternative name for `Localizable.strings`.
 - `unstripped`: Keeps whitespaces at beginning & end of Strings files.
 - `plistArguments`: Use a plist file to store all the code files for the ExtractLocStrings tool. (Recommended for large projects.)
@@ -258,7 +258,7 @@ tasks = ["interfaces", "code", "transform", "normalize"]
 
 - `codePaths`: The directory / directories to search for Swift code files.
 - `localizablePaths`:  The enclosing path(s) containing the localized `Localizable.strings` files.
-- `transformer`: Specifies the replacement code. Use `foundation` for `NSLocalizedString` or `swiftgenStructured` for `L10n` entries.
+- `transformer`: Specifies the replacement code. Use `foundation` for `CFLocalizedString` or `swiftgenStructured` for `L10n` entries.
 - `supportedLanguageEnumPath`: The enclosing path containing the `SupportedLanguage` enum.
 - `typeName`: The name of the type enclosing the `SupportedLanguage` enum and translate method.
 - `translateMethodName`: The name of the translate method to be replaced.
@@ -301,7 +301,7 @@ Note that the `lint` command can be used both on CI and within Xcode via the bui
 
 When the `transform` update task is configured (see recommended step 4 in the [Configuration](#configuration) section above) and you are using the [build script method](#build-script), you can use the following simplified process for writing localized code during development:
 
-1. Instead of `NSLocalizedString` calls you can use `BartyCrouch.translate` and specify a key, translations (if any) and optionally a comment. For example:
+1. Instead of `CFLocalizedString` calls you can use `BartyCrouch.translate` and specify a key, translations (if any) and optionally a comment. For example:
 
 ```swift
 self.title = BartyCrouch.translate(key: "onboarding.first-page.header-title",  translations: [.english: "Welcome!"])
@@ -315,7 +315,7 @@ The resulting code depends on your `transformer` option setting:
 When set to `foundation`, the above code will transform to:
 
 ```swift
-self.title = NSLocalizedString("onboarding.first-page.header-title", comment: "")
+self.title = CFLocalizedString("onboarding.first-page.header-title", comment: "")
 ```
 
 When set to `swiftgenStructured` it will transform to:
@@ -326,7 +326,7 @@ self.title = L10n.Onboarding.FirstPage.headerTitle
 
 **Advantages of `transform` over the `code` task:**
 * You can provide translations for keys without switching to the Strings files.
-* In case you use SwiftGen, you don't need to replace calls to `NSLocalizedString` with `L10n` calls manually after running BartyCrouch.
+* In case you use SwiftGen, you don't need to replace calls to `CFLocalizedString` with `L10n` calls manually after running BartyCrouch.
 * Can be combined with the machine translation feature to provide a source language translation in code and let BartyCrouch translate it to all supported languages in a single line & without ever leaving the code.
 
 **Disadvantages of `transform` over the `code` task:**
@@ -359,7 +359,7 @@ Now BartyCrouch will be run on each build and you won't need to call it manually
 
 ---
 
-### Exclude specific Views / NSLocalizedStrings from Localization
+### Exclude specific Views / CFLocalizedStrings from Localization
 
 Sometimes you may want to **ignore some specific views** containing localizable texts e.g. because **their values are going to be set programmatically**.
 
@@ -378,13 +378,13 @@ Here's an example with the alternative comment variant:
 	<img src="Images/IB-Comment-Exclusion-Example2.png" width="254px" height="140px">
 </div>
 
-You can also use `#bc-ignore!` in your `NSLocalizedString` macros comment part to ignore them so they are not added to your `Localizable.strings`. This might be helpful when you are using a `.stringsdict` file to handle pluralization (see [docs](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html)).
+You can also use `#bc-ignore!` in your `CFLocalizedString` macros comment part to ignore them so they are not added to your `Localizable.strings`. This might be helpful when you are using a `.stringsdict` file to handle pluralization (see [docs](https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/StringsdictFileFormat/StringsdictFileFormat.html)).
 
 For example you can do something like this:
 
 ```swift
 func updateTimeLabel(minutes: Int) {
-  String.localizedStringWithFormat(NSLocalizedString("%d minute(s) ago", comment: "pluralized and localized minutes #bc-ignore!"), minutes)
+  String.localizedStringWithFormat(CFLocalizedString("%d minute(s) ago", comment: "pluralized and localized minutes #bc-ignore!"), minutes)
 }
 ```
 

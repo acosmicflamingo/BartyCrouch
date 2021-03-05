@@ -3,6 +3,6 @@ import XCTest
 
 class DemoTests: XCTestCase {
     func testExample() {
-        NSLocalizedString("Tests Love", comment: "Comment for Tests Love")
+        CFLocalizedString("Tests Love", comment: "Comment for Tests Love")
     }
 }

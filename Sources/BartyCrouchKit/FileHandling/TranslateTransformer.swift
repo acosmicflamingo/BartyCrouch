@@ -181,7 +181,7 @@ class TranslateTransformer: SyntaxRewriter {
             SyntaxFactory.makeFunctionCallExpr(
                 calledExpression: ExprSyntax(
                     SyntaxFactory.makeIdentifierExpr(
-                        identifier: SyntaxFactory.makeIdentifier("\(leadingWhitespace)NSLocalizedString"),
+                        identifier: SyntaxFactory.makeIdentifier("\(leadingWhitespace)CFLocalizedString"),
                         declNameArguments: nil
                     )
                 ),

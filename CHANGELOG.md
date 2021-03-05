@@ -112,7 +112,7 @@ If needed, pluralize to `Tasks`, `PRs` or `Authors` and list multiple entries se
 - Support for [installation](https://github.com/Flinesoft/BartyCrouch#installation) via Mint (SwiftSPM based).
 - Use [configuration file](https://github.com/Flinesoft/BartyCrouch#configuration) instead of thousands of command line options.
 - [Demo project based](https://github.com/Flinesoft/BartyCrouch/tree/stable/Demo/Untouched) integration tests.
-- Sophisticated [SwiftGen](https://github.com/SwiftGen/SwiftGen)-Integration (automatic static NSLocalizedString code replacement) via new `transform` option.
+- Sophisticated [SwiftGen](https://github.com/SwiftGen/SwiftGen)-Integration (automatic static CFLocalizedString code replacement) via new `transform` option.
 ### Changed
 - All subcommands except `lint` were bundled into the `update` subcommand.
 - [Own client implementation](https://github.com/Flinesoft/BartyCrouch/tree/stable/Sources/BartyCrouchTranslator) of updated Microsowft Translator API.
@@ -253,7 +253,7 @@ See also their documentation sections in the README for additional details.
 
 ## [3.1.0] - 2016-06-04
 ### Added
-- **Ignores NSLocalizedStrings** which have ignore constant (e.g. `#bc-ignore!`) in comment (#16)
+- **Ignores CFLocalizedStrings** which have ignore constant (e.g. `#bc-ignore!`) in comment (#16)
 
 ## [3.0.0] - 2016-05-05
 ### Added

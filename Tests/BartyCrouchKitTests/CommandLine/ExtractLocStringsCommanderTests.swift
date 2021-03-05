@@ -69,16 +69,16 @@
 //        _ codeCommander: CodeCommander, takesCodeIn directory: String, customFunction: String?, producesResult expectedLocalizableContentLines: [String]
 //    ) {
 //        let exportSuccess = codeCommander.export(stringsFilesToPath: directory, fromCodeInDirectoryPath: directory, customFunction: customFunction)
-//        XCTAssertTrue(exportSuccess, "Failed for \(directory) with function \"\(customFunction ?? "NSLocalizedString")\"")
+//        XCTAssertTrue(exportSuccess, "Failed for \(directory) with function \"\(customFunction ?? "CFLocalizedString")\"")
 //
 //        do {
 //            let contentsOfStringsFile = try String(contentsOfFile: directory + "/Localizable.strings")
 //            let linesInStringsFile = contentsOfStringsFile.components(separatedBy: CharacterSet.newlines)
 //            XCTAssertEqual(
-//                linesInStringsFile, expectedLocalizableContentLines, "Failed for \(directory) with function \"\(customFunction ?? "NSLocalizedString")\""
+//                linesInStringsFile, expectedLocalizableContentLines, "Failed for \(directory) with function \"\(customFunction ?? "CFLocalizedString")\""
 //            )
 //        } catch {
-//            XCTFail("Failed for \(directory) with function \"\(customFunction ?? "NSLocalizedString")\"")
+//            XCTFail("Failed for \(directory) with function \"\(customFunction ?? "CFLocalizedString")\"")
 //        }
 //    }
 //

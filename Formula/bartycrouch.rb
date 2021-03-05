@@ -16,7 +16,7 @@ class Bartycrouch < Formula
 
       class Test {
         func test() {
-            NSLocalizedString("test", comment: "")
+            CFLocalizedString("test", comment: "")
         }
       }
     EOS

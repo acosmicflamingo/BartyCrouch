@@ -34,7 +34,7 @@ public final class CodeCommander {
         let argumentsWithoutTheFiles = ["extractLocStrings"] + ["-o", stringsFilePath] + customFunctionArgs + ["-q"]
 
         let arguments = try appendFiles(files, inListOfArguments: argumentsWithoutTheFiles, usePlistArguments: usePlistArguments)
-        try Task.run("/usr/bin/xcrun", arguments: arguments)
+        try? Task.run("/usr/bin/xcrun", arguments: arguments)
     }
 
     func findFiles(in codeDirectoryPath: String) throws -> [String] {
