@@ -33,8 +33,16 @@ public final class CodeCommander {
 
         let argumentsWithoutTheFiles = ["extractLocStrings"] + ["-o", stringsFilePath] + customFunctionArgs + ["-q"]
 
-        let arguments = try appendFiles(files, inListOfArguments: argumentsWithoutTheFiles, usePlistArguments: usePlistArguments)
-        try? Task.run("/usr/bin/xcrun", arguments: arguments)
+        let arguments = try appendFiles(
+            files,
+            inListOfArguments: argumentsWithoutTheFiles,
+            usePlistArguments: usePlistArguments
+        )
+
+        // Try to create pipe instance for ignoring output
+        let output = PipeStream()
+        let task = Task(executable: "/usr/bin/xcrun", arguments: arguments, stdout: output, stderr: output)
+        task.runSync()
     }
 
     func findFiles(in codeDirectoryPath: String) throws -> [String] {

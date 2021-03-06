@@ -1,3 +1,9 @@
+"Existing Duplicate Key" = "Value 1";
+
+"Existing Duplicate Key" = "Value 2";
+
+"Existing Only in English Key" = "Existing Value";
+
 /* 
   Localizable.strings
   Demo
@@ -5,13 +11,13 @@
   Created by Cihat Gündüz on 18.01.19.
   Copyright © 2019 Flinesoft. All rights reserved.
 */
-
 "Existing Translation Key" = "Existing Value";
 
-"Existing Duplicate Key" = "Value 1";
+"onboarding.first-page.header-title" = "Page Title";
 
-"Existing Duplicate Key" = "Value 2";
+"ShortKey" = "                    "Some Translation";
 
 "Existing Empty Value Key" = "";
 
-"Existing Only in English Key" = "Existing Value";
+/*Line Comment*/
+"onboarding.first-page.line" = "";
