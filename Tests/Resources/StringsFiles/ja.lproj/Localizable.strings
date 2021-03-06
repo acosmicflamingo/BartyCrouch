@@ -1,8 +1,17 @@
-
 /* A string already localized in all languages. */
 "Test key" = "Test value (ja)";
 
+/* A string where key only available in English. */
+"menu.bicycles" = "";
+
 /* A string where value only available in English. */
 "menu.cars" = "";
+
+"onboarding.first-page.header-title" = "";
+
+/*Line Comment*/
+"onboarding.first-page.line" = "";
+
+"ShortKey" = "";
 
 "TEST.KEY.UNESCAPED_DOUBLE_QUOTES" = "";

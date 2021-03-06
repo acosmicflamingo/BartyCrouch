@@ -1,8 +1,17 @@
+"onboarding.first-page.header-title" = "Seitentitel";
 
 /* A string already localized in all languages. */
 "Test key" = "Test value (de)";
 
+/* A string where key only available in English. */
+"menu.bicycles" = "";
+
 /* A string where value only available in English. */
 "menu.cars" = "";
+
+/*Line Comment*/
+"onboarding.first-page.line" = "";
+
+"ShortKey" = "";
 
 "TEST.KEY.UNESCAPED_DOUBLE_QUOTES" = "";

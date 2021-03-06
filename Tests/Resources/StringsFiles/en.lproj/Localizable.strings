@@ -1,11 +1,17 @@
-
-/* A string already localized in all languages. */
-"Test key" = "Test value (en)";
+/* A string where key only available in English. */
+"menu.bicycles" = "Bicycles";
 
 /* A string where value only available in English. */
 "menu.cars" = "Cars";
 
-/* A string where key only available in English. */
-"menu.bicycles" = "Bicycles";
+"onboarding.first-page.header-title" = "Page Title";
+
+"ShortKey" = "                    "Some Translation";
+
+/* A string already localized in all languages. */
+"Test key" = "Test value (en)";
 
 "TEST.KEY.UNESCAPED_DOUBLE_QUOTES" = "She said: 'Stop!'";
+
+/*Line Comment*/
+"onboarding.first-page.line" = "";
